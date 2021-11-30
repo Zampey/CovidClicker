@@ -10,8 +10,10 @@ import java.io.IOException;
 
 public class BackgroundSong implements ActionListener {
 
+    final int SONG_DELAY = 103000;
 
     public BackgroundSong() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+
 
         File file = new File("src/com/company/bgSong.wav");
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
@@ -19,7 +21,7 @@ public class BackgroundSong implements ActionListener {
         clip.open(audioStream);
         clip.start();
 
-        Timer timer = new Timer(103000, new ActionListener() {
+        Timer timer = new Timer(SONG_DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clip.setMicrosecondPosition(0);
