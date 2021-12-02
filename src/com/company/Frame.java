@@ -9,9 +9,13 @@ import java.awt.event.MouseListener;
 import java.awt.font.TextLayout;
 
 public class Frame extends JFrame implements MouseListener {
-    JLabel click, money;
+    Money money = new Money();
+    String actualMoney = money.getData();
+    long actualMoneyAsLong = Long.parseLong(actualMoney);
 
-     BgLabel bgLabel = new BgLabel();
+    JLabel click, coins;
+
+     BgLabel bgLabel = new com.company.BgLabel();
     JFrame mainFrame = new JFrame("Covid-Clicker");
 
 
@@ -24,21 +28,22 @@ public class Frame extends JFrame implements MouseListener {
 
     Image coinsImg = new ImageIcon("src/com/company/coins.png").getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
     ImageIcon coinIcon = new ImageIcon(coinsImg);
-    String text = "9587";
+
+
         Frame(){
 
 
 
 
             //number of coins you have
-            money = new JLabel();
-            money.setText(text);
-            money.setIcon(coinIcon);
-            money.setBounds(540, 15, 150, 50);
-            money.setForeground(Color.WHITE);
-            money.setFont(textFont);
-            money.setVerticalAlignment(JLabel.CENTER);
-            money.setHorizontalAlignment(JLabel.CENTER);
+            coins = new JLabel();
+            coins.setText(actualMoney);
+            coins.setIcon(coinIcon);
+            coins.setBounds(495, 15, 250, 50);
+            coins.setForeground(Color.WHITE);
+            coins.setFont(textFont);
+            coins.setVerticalAlignment(JLabel.CENTER);
+            coins.setHorizontalAlignment(JLabel.CENTER);
 
 
         //big icon in the center of frame
@@ -63,23 +68,38 @@ public class Frame extends JFrame implements MouseListener {
 
 
             mainFrame.add(click);
-            mainFrame.add(money);
+            mainFrame.add(coins);
             mainFrame.add(bgLabel);
 
+            this.moneyShortcutSetter();
         }
 
 
     @Override
     public void mouseClicked(MouseEvent e) {
 
+        actualMoneyAsLong = actualMoneyAsLong+1;
+        money.setActualMoney(actualMoneyAsLong);
+        money.write();
+        coins.setText(String.valueOf(actualMoneyAsLong));
+
+        this.moneyShortcutSetter();
+
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
+
+
         Image bigCovidOnPressed = new ImageIcon("src/com/company/bigCovid.png").getImage().getScaledInstance(120, 120,  Image.SCALE_SMOOTH);
         ImageIcon bigCovidIconOnPressed = new ImageIcon(bigCovidOnPressed);
         click.setIcon(bigCovidIconOnPressed);
         click.setBounds(570, 250, 120, 120);
+
+
+
+
     }
 
     @Override
@@ -94,6 +114,51 @@ public class Frame extends JFrame implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+
+    }
+
+
+
+    public void moneyShortcutSetter(){
+        String[] shortcuts = {"K","M", "B", "T", "Qa", "Qi"};
+
+        textFont = new Font("Serif",0, 35);
+        coins.setFont(textFont);
+
+        if (actualMoneyAsLong >= 100000){
+            double actualMoneyAsDouble = Math.round((((float)actualMoneyAsLong)/1000) * 100.0) / 100.0;
+            coins.setText(Double.toString(actualMoneyAsDouble) + shortcuts[0]);
+
+        }
+
+
+        if (actualMoneyAsLong >= 1000000){
+            double actualMoneyAsDouble = Math.round((((float)actualMoneyAsLong)/1000000) * 100.0) / 100.0;
+            coins.setText(Double.toString(actualMoneyAsDouble) + shortcuts[1]);
+        }
+
+
+        if (actualMoneyAsLong >= 1000000000){
+            double actualMoneyAsDouble = Math.round((((float)actualMoneyAsLong)/1000000000) * 100.0) / 100.0;
+            coins.setText(Double.toString(actualMoneyAsDouble) + shortcuts[2]);
+        }
+
+        if (actualMoneyAsLong >= Math.pow(10, 12)){
+            double actualMoneyAsDouble = Math.round((((float)actualMoneyAsLong)/Math.pow(10, 12)) * 100.0) / 100.0;
+            coins.setText(Double.toString(actualMoneyAsDouble) + shortcuts[3]);
+        }
+
+        if (actualMoneyAsLong >= Math.pow(10, 15)){
+            double actualMoneyAsDouble = Math.round((((float)actualMoneyAsLong)/Math.pow(10, 15)) * 100.0) / 100.0;
+            coins.setText(Double.toString(actualMoneyAsDouble) + shortcuts[4]);
+        }
+
+        if (actualMoneyAsLong >= Math.pow(10, 18)){
+            double actualMoneyAsDouble = Math.round((((float)actualMoneyAsLong)/Math.pow(10, 18)) * 100.0) / 100.0;
+            coins.setText(Double.toString(actualMoneyAsDouble) + shortcuts[5]);
+        }
+
+
 
     }
 
