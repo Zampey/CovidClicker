@@ -15,13 +15,13 @@ import java.io.IOException;
 import java.util.Scanner;
 @Getter
 @Setter
-public class Money {
+public class MoneyRW {
 
     private long actualMoney;
     private String data;
 
     private File file = new File("src/com/company/yourMoney.txt");
-    public Money() {
+    public MoneyRW() {
             this.read();
 
     }
@@ -32,7 +32,7 @@ public void read(){
         Scanner reader = new Scanner(file);
         while (reader.hasNextLine()) {
             data = reader.nextLine();
-            //System.out.println(data);
+
         }
         reader.close();
     } catch (FileNotFoundException e) {
@@ -48,8 +48,7 @@ public void read(){
             FileWriter writer = new FileWriter("src/com/company/yourMoney.txt");
             writer.write(actualMoneyToString);
             writer.close();
-           // System.out.println(actualMoneyToString);
-            //System.out.println("Successfully wrote to the file.");
+
         } catch (IOException e) {
             System.out.println("An error occurred.(money-file-writer)");
             e.printStackTrace();
