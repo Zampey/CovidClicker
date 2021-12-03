@@ -57,25 +57,25 @@ public class BgLabel extends JLabel implements ActionListener {
 
         Graphics2D g2D = (Graphics2D) g;
 
-        g2D.drawImage(covid, x, y1-50, null);
+        //g2D.drawImage(covid, x, y1-50, null);
         g2D.drawImage(covid, x+130, y1-320, null);
         g2D.drawImage(covid, x+210, y1-620, null);
         g2D.drawImage(covid, x+310, y1-450, null);
-        g2D.drawImage(covid, x+460, y1-210, null);
+        g2D.drawImage(covid, x+400, y1-210, null);
         //g2D.drawImage(covid, x+600, y1-450, null);
-        g2D.drawImage(covid, x+750, y1-550, null);
+        g2D.drawImage(covid, x+770, y1-550, null);
         g2D.drawImage(covid, x+850, y1-256, null);
         g2D.drawImage(covid, x+1000, y1-330, null);
         g2D.drawImage(covid, x+1200, y1-570, null);
 
 
-        g2D.drawImage(covid, x, y2-50, null);
+        //g2D.drawImage(covid, x, y2-50, null);
         g2D.drawImage(covid, x+130, y2-320, null);
         g2D.drawImage(covid, x+210, y2-620, null);
         g2D.drawImage(covid, x+310, y2-450, null);
-        g2D.drawImage(covid, x+460, y2-210, null);
+        g2D.drawImage(covid, x+400, y2-210, null);
         //g2D.drawImage(covid, x+600, y2-450, null);
-        g2D.drawImage(covid, x+750, y2-550, null);
+        g2D.drawImage(covid, x+770, y2-550, null);
         g2D.drawImage(covid, x+850, y2-256, null);
         g2D.drawImage(covid, x+1000, y2-330, null);
         g2D.drawImage(covid, x+1200, y2-570, null);
