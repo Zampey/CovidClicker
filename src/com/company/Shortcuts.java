@@ -21,7 +21,7 @@ public class Shortcuts {
 
      Shortcuts() {
          coins = new JLabel();
-         coins.setText(actualMoney);
+         coins.setText(String.valueOf(actualMoney));
          coins.setIcon(iconInstances.getCoinIcon());
          coins.setBounds(495, 15, 250, 50);
          coins.setForeground(Color.WHITE);
@@ -40,6 +40,8 @@ public class Shortcuts {
 
         coinsTextFont = new Font("Serif",0, 35);
         coins.setFont(coinsTextFont);
+
+        coins.setText(String.valueOf(actualMoneyAsLong));
 
         if (actualMoneyAsLong >= Math.pow(10, 5)){
             double actualMoneyAsDouble = Math.round((((float)actualMoneyAsLong)/1000) * 100.0) / 100.0;

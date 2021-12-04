@@ -52,13 +52,13 @@ public class BgLabel extends JLabel implements ActionListener {
 
     }
 
-    public void paint(Graphics g){
-        super.paint(g);
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
 
         Graphics2D g2D = (Graphics2D) g;
 
-
         g2D.drawImage(covid, x+130, y1-320, null);
+
         g2D.drawImage(covid, x+210, y1-620, null);
         g2D.drawImage(covid, x+310, y1-450, null);
         g2D.drawImage(covid, x+400, y1-210, null);
@@ -80,6 +80,7 @@ public class BgLabel extends JLabel implements ActionListener {
         g2D.drawImage(covid, x+1000, y2-330, null);
         g2D.drawImage(covid, x+1200, y2-570, null);
 
+        Toolkit.getDefaultToolkit().sync();
 
     }
 
