@@ -38,7 +38,7 @@ public class Frame extends JFrame implements MouseListener{
 
 
             mainFrame.getContentPane().setBackground(backgroundColor);
-            mainFrame.setIconImage(new ImageIcon("src/com/company/bigCovid.png").getImage().getScaledInstance(90, 90,  Image.SCALE_SMOOTH));
+            mainFrame.setIconImage(new ImageIcon("src/com/company/bigCovid.png").getImage().getScaledInstance(30, 30,  Image.SCALE_SMOOTH));
             mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             mainFrame.setSize(1280, 720);
             mainFrame.setLocationRelativeTo(null);

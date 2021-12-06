@@ -22,11 +22,12 @@ public class ShopPanel extends JPanel implements MouseListener {
         shopPanel.setBackground(sideBarBackgroundColor);
         shopPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 3, sideBarBorderColor));
         shopPanel.setLayout(null);
-        shopPanel.setVisible(false);
 
 
 
     }
+
+
 
 
 

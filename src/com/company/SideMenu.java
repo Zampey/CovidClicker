@@ -15,7 +15,7 @@ public class SideMenu extends JPanel implements MouseListener {
 
     Color sideBarBorderColor = new Color(114, 21, 21);
     Color sideBarBackgroundColor = new Color(182, 41, 41);
-
+    ShopPanel shopPanel = new ShopPanel();
     JLabel shop, achievements, skins, rebirth, settings;
     IconsInstances iconInstances = new IconsInstances();
     JPanel sidePanel = new JPanel();
